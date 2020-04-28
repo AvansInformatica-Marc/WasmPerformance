@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.AbstractKotlinNativeCompile
-import java.net.URI
 
 plugins {
-    kotlin("multiplatform") version "1.3.71"
+    kotlin("multiplatform") version "1.4-M1"
 }
 
 group = "org.example"
@@ -11,6 +10,8 @@ version = "1.0"
 repositories {
     mavenCentral()
     jcenter()
+    maven ("https://dl.bintray.com/kotlin/kotlin-eap")
+    maven ("https://kotlin.bintray.com/kotlinx")
 }
 
 val hostOs = System.getProperty("os.name")
@@ -33,6 +34,8 @@ kotlin {
     }
 
     js {
+        produceExecutable()
+
         browser {}
     }
 
